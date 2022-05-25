@@ -1,0 +1,44 @@
+<p>Listado de Heroés</p>
+
+<!--
+
+<div *ngIf= " heroeBorrado ">         - " heroeBorrado " es lo mismo que: " heroeBorrado !== '' " 
+
+    <h3>Héroe Borrado: <small> {{ heroeBorrado }} </small></h3>   
+
+</div>
+
+<div *ngIf= " !heroeBorrado ">        - Si es diferente de un heroe es undefined y se cumple la condición
+
+    <h3>No quedan elementos.</h3>   
+
+</div>
+
+-->
+
+<!-- Ahora con IF ELSE -->
+<div *ngIf= " heroeBorrado; else noBorrado ">   <!-- ATENCIÓN AL ELSE-->     
+
+    <h3>Héroe Borrado: <small> {{ heroeBorrado }} </small></h3>   
+
+</div>
+
+<ng-template #noBorrado> <!-- # es una referencia local-->
+
+    <h3>No quedan elementos.</h3> 
+
+</ng-template>
+
+
+<button (click)= "borrarHeroe()">
+    Borrar
+</button>
+
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index"> <!-- ES UNA ESPECIE DE FOR EACH -->
+      {{ i + 1 }} - {{ heroe }}
+    </li>
+    
+</ul>
+
